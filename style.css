@@ -212,7 +212,7 @@ ul#linktabs li {
     cursor: pointer;
     text-align: center;
 }
-ul#linktabs li:hover, ul#linktabs li:active {
+ul#linktabs li:hover, ul#linktabs li.active {
     color: var(--Sidebar-Hover);
     background-color: var(--Sidebar-Links);
 }

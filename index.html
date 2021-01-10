@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<!--?tab=TABNAME to refer to a specific tab-->
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,11 @@
     <!--SCRIPTS-->
     <script> //Tab function. Thanks w3schools.com
         document.addEventListener("DOMContentLoaded", function(event) { 
-            document.getElementById("default").click();
+            const tab = new URLSearchParams(window.location.search)
+            if (tab) {
+                document.getElementById(tab).click();
+            } 
+            else; document.getElementById("default").click();
         });
         function tabSwitch(evt, tabName) {
             // Declare all variables
@@ -54,8 +58,8 @@
         <!--Page tabs-->
         <ul id="linktabs">
             <li class="tablinks" onclick="tabSwitch(event, 'Home')" id="default">Home</li>
-            <li class="tablinks" onclick="tabSwitch(event, 'Sans')">UF!Sans Ukagaka</li>
-            <li class="tablinks" onclick="tabSwitch(event, 'Snail')">Snail Ukagaka</li>
+            <li class="tablinks" onclick="tabSwitch(event, 'Sans')" id="sans">UF!Sans Ukagaka</li>
+            <li class="tablinks" onclick="tabSwitch(event, 'Snail')" id="snail">Snail Ukagaka</li>
         </ul>
         <!--Webring-->
         <div style="border: 0.2em solid var(--Sidebar-Links);">
