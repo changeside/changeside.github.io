@@ -38,7 +38,7 @@
 body
 {
     background-color: var(--Background-Color);
-    background-image: var(--Background-Image);
+    /*background-image: var(--Background-Image);*/
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;

@@ -18,10 +18,11 @@
     <script> //Tab function. Thanks w3schools.com
         document.addEventListener("DOMContentLoaded", function(event) { 
             var tab = getQueryVariable("tab");
-            if (tab) {
-                document.getElementById(tab).click();
+            console.log(tab);
+            if (!tab) {
+                document.getElementById("default").click();
             } 
-            else; document.getElementById("default").click();
+            else; document.getElementById(tab).click();
         });
         function tabSwitch(evt, tabName) {
             // Declare all variables
