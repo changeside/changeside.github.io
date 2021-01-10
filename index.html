@@ -18,6 +18,7 @@
     <script> //Tab function. Thanks w3schools.com
         document.addEventListener("DOMContentLoaded", function(event) { 
             const tab = new URLSearchParams(window.location.search)
+            tab.toString();
             if (tab) {
                 document.getElementById(tab).click();
             } 
