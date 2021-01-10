@@ -1,40 +1,87 @@
-/*This is a CSS comment! Anything between these tags will not be run and is for your reference. Everything in this file has to do with how the website looks; I've pointed out areas where you can pick text/background colors, etc. If you want to look into doing more specific effects, google is your best friend! You can also look at what's available at https://www.w3schools.com/ */
-/*Template version 1.0.1*/
+:root { /*IMPORTANT: need to set opacity in the colors*/
+    /*Font Colors*/
+    --Link: #3f2727;
+    --Link-Hover: #644343;
+    --Text: #0f0f0f;
+    --Bold: #0f0f0f;
+    --Italics: #3f2727;
+    --Shadow: #3d2828d2; /*Font shadow*/
+    /*Font settings*/
+    --Font: Verdana, Source Sans Pro;
+    --Font-Size-Main: 16px;
+    /*Background*/
+    --Background-Image: url("background.png");
+    --Background-Color: #2c2422;
+    /*Sidebar*/
+    --Sidebar-Height: 0px; /*60px,0px : margin-top of sidebar*/ 
+    --Icon-Size: 128px; /*Tiny:48px;Small:64px;Medium:96px;Large:128px*/
+    --Sidebar-Title: "Goergia";
+    --Sidebar-Color: #8a7878de;
+    --Sidebar-Hover: #8a7878;
+    --Sidebar-Links: #4d3232;
+    /*Body*/
+    --Body-Background: #5a4a4ade;
+    --Body-Foreground: #5a4a4a;
+    --Body-Width: 650px; /*450px;500px;540px;600px;650px*/
+    --Body-Unfocused: 1; /*Regular transparency*/
+    --Body-Hover: 1; /*Hover transparency*/
+}
 
-/*This affects every element on the site. You can change the font and font color here.*/
 *
 { 
-    font-family: 'Tahoma', sans-serif;
-    color: #222020; /*Text color*/
+    font-family: var(--Font) ,sans-serif;
+    font-size: var(--Font-Size-Main);
+    color: var(--Text);
     text-align: left;
 }
 
 body
 {
-    background: #a8aeb1; /*This is the background color for the whole site*/
-    margin-left: 3%;
-    margin-right: 3%;
+    background-color: var(--Background-Color);
+    background-image: var(--Background-Image);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    margin: 0;
+    /*margin-left: 3%;*/
+    /*margin-right: 3%;*/
+   
+    word-wrap: break-word;
+}
+img { /*Images*/
+    border: 0;
+    max-width: 70%;
+}
+b, strong { /*Bold*/
+    text-shadow: 3px 3px 10px var(--Shadow) !important;
+    color: var(--Bold);
+}
+i, em { /*Italics*/
+    color: var(--Italics);
+}
+small, sub, sup { /*Small text*/
+    font-size: calc(var(--Font-Size-Main) - 0.3em);
+    vertical-align:baseline;
+}
+a { /*Links*/
+    color: var(--Link);
+    text-decoration: none;
+    
+    text-shadow: 3px 3px 10px var(--Shadow)
+}
+a:hover {
+    color: var(--Link-Hover);
 }
 
-article
-{
-    background: #f0f0f0; /*This is the white boxes that the text is in. You can change this to anything you like*/
-    border-radius: 5px;
-    margin-top: 5px;
-    margin-left: 5%;
-    margin-right: 5%;
-    padding: 20px;
+#content {
+    width: var(--Body-Width);
+    margin: 60px 0 60px 460px;
+    background-color: var(--Sidebar-Color);
 }
-
-footer
-{
-    margin-top: 5px;
-    margin-left: 5%;
-    margin-right: 5%;
-    background: #f0f0f0;
-    padding: 5px;
-    border-radius: 5px;
-    text-align: center;
+.tab {
+    padding: 1em;
 }
 
 h1
@@ -45,13 +92,6 @@ h1
 h2
 {
     text-align: center;
-}
-
-a
-{
-    color: #6f838b; /*This is the color for links, such as the download link*/
-    text-decoration: None;
-    font-weight: bold;
 }
 
 /*Class for centering images*/
@@ -66,21 +106,14 @@ a
 }
 
 /*Classes for the download button*/
-.dlbutton
-{
-    display: block;
+.download {
+    display: inline;
     text-align: center;
-    padding: 10px;
-    background-color: #d8d8d8;
+    padding: 0.3em;
+    border-bottom: 0.2em solid var(--Sidebar-Links);
     max-width: 35%;
-    border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.dlbutton:hover
-{
-    background-color: #cfcfcf;
 }
 
 /*This is for the webring, but you could use it for any center aligned text*/
@@ -89,23 +122,169 @@ a
 	text-align: center;
 }
 
-.version
-{
-    margin-left: 20%;
-    margin-right: 20%;
-    padding: 10px;
-    text-align: center;
+
+/*Scrollbar*/
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+::-webkit-scrollbar-button {
+    width: 2px;
+    height: 2px;
+}
+::-webkit-scrollbar-thumb { /*Foreground*/
+    background: rgba(var(--Sidebar-Color),var(--Sidebar-Hover));
+    border: 0px none #ffffff;
+    border-radius: 43px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--Body-Foreground);
+}
+::-webkit-scrollbar-thumb:active {
+    background-color: var(--Body-Foreground);
+}
+::-webkit-scrollbar-track { /*BACKGROUND*/
+    background: var(--Sidebar-Color);
+    border: 0px none #843333;
+    border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+    background: rgba(var(--Sidebar-Color),var(--Sidebar-Hover));
+}
+::-webkit-scrollbar-track:active {
+    background: rgba(var(--Sidebar-Color),var(--Sidebar-Hover));
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
 }
 
-.version:hover
-{
-    background: #d8d8d8; /*If you dont want your version history to change color when you hover over it, remove this bit of code*/
-    border-radius: 5px;
+
+/*SIDEBAR*/
+#sidebar {
+    background: var(--Sidebar-Color);
+    min-height: 100% !important;
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    left: 100px;
+    top:0px;
+    padding: 20px;
+    margin-top: var(--Sidebar-Height);
+}
+#sidebar:hover {
+    background: var(--Sidebar-Hover);
+}
+#sidebar .icon { /*Icon*/
+    border-radius: 5%;
+    width: var(--Icon-Size);
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+#sidebar .title {
+    font-size: calc(var(--Font-Size-Main) + 0.7em);
+    font-family: var(--Sidebar-Title);
+    text-align: center;
+    padding: 20px;
+}
+#sidebar .description {
+    text-align: justify;
+    padding:10px;
+    line-height:100%;
 }
 
-.credit /*Please leave this credit as-is if you use the template as given! If you start making major changes, you can go ahead and get rid of it tbh. Everything I've done here is very basic HTML/CSS*/
-{
+
+/*Lists*/
+ul#linktabs {
+    list-style-type: none;
+    padding: 0;
     text-align: center;
-    color: #a4a4a4;
-    font-size: 12px;
+    width: 260px;
+}
+ul#linktabs li {
+    background-color: transparent;
+    border: solid 0px #262626;
+    padding: 5px 20px;
+    margin-bottom: 4px;
+    color: var(--Text);
+    cursor: pointer;
+    text-align: center;
+}
+ul#linktabs li:hover, ul#linktabs li:active {
+    color: var(--Sidebar-Hover);
+    background-color: var(--Sidebar-Links);
+}
+
+ul {
+    padding-left: inherit;
+}
+
+/*Blockquotes*/
+q, blockquote {
+    quotes: "「" "」"  "（" "）" ;
+    position: relative;
+    margin: 0.5em;
+    padding: 0px;
+}
+q p, blockquote p,q div, blockquote div {
+    display:inline-block;
+}
+q p:not(:last-child)::after,
+blockquote p:not(:last-child)::after,
+q div:not(:last-child)::after,
+blockquote div:not(:last-child)::after {
+    content:"\a";
+    display: inline;
+    white-space: pre;
+}
+q:before, blockquote:before,
+q:after, blockquote:after {
+    color: var(--Text);
+    position: absolute;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5em;
+    text-shadow: 0px 0px 2px rgba(var(--Text), 0.5);
+}
+q:before,
+blockquote:before {
+    content: open-quote;
+    
+    margin-left: -0.9em;
+    margin-top: -0.2em;
+    top:0;
+}
+q:after, blockquote:after {
+    content: close-quote;
+    
+    margin-left:-0.1em;
+    margin-top:-0.2em;
+    bottom:-0.2em;
+} 
+blockquote blockquote {
+    margin: 0;
+    padding: 2px;
+}
+blockquote blockquote:before,
+blockquote blockquote:after {
+    position:relative;
+    margin:0;
+    bottom:0;
+}
+
+#webring
+{
+    display: flex;
+    align-items:center;
+    margin: 0.2em;
+    border-bottom: 0.2em solid var(--Sidebar-Links);
+}
+img.webring
+{
+    margin-right: 0.5em;
+    border-radius: 50%;
+    width: 20%;
+    height: auto;
 }
