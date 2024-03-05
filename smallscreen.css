@@ -1,0 +1,277 @@
+:root { /*IMPORTANT: need to set opacity in the colors*/
+    /*Font Colors*/
+    --Link: #3f2727;
+    --Link-Hover: #644343;
+    --Text: #0f0f0f;
+    --Bold: #0f0f0f;
+    --Italics: #3f2727;
+    --Shadow: #3d2828d2; /*Font shadow*/
+    /*Font settings*/
+    --Font: Verdana, Source Sans Pro;
+    --Font-Size-Main: 16px;
+    /*Background*/
+    --Background-Image: url("background.png");
+    --Background-Color: #2c2422;
+    /*Sidebar*/
+    --Sidebar-Height: 0px; /*60px,0px : margin-top of sidebar*/ 
+    --Icon-Size: 128px; /*Tiny:48px;Small:64px;Medium:96px;Large:128px*/
+    --Sidebar-Title: "Goergia";
+    --Sidebar-Color: #8a7878de;
+    --Sidebar-Hover: #8a7878;
+    --Sidebar-Links: #4d3232;
+    /*Body*/
+    --Body-Background: #5a4a4ade;
+    --Body-Foreground: #5a4a4a;
+    --Body-Width: 10000px; /*450px;500px;540px;600px;650px*/
+    --Body-Unfocused: 1; /*Regular transparency*/
+    --Body-Hover: 1; /*Hover transparency*/
+}
+
+*
+{ 
+    font-family: var(--Font) ,sans-serif;
+    font-size: var(--Font-Size-Main);
+    color: var(--Text);
+    text-align: left;
+}
+
+body
+{
+    background-color: var(--Background-Color);
+    /*background-image: var(--Background-Image);*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    margin: 0;
+    /*margin-left: 3%;*/
+    /*margin-right: 3%;*/
+   
+    word-wrap: break-word;
+}
+img { /*Images*/
+    border: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 100%;
+}
+b, strong { /*Bold*/
+    text-shadow: 3px 3px 10px var(--Shadow) !important;
+    color: var(--Bold);
+}
+i, em { /*Italics*/
+    color: var(--Italics);
+}
+small, sub, sup { /*Small text*/
+    font-size: calc(var(--Font-Size-Main) - 0.3em);
+    vertical-align:baseline;
+}
+a { /*Links*/
+    color: var(--Link);
+    text-decoration: none;
+    
+    text-shadow: 3px 3px 10px var(--Shadow)
+}
+
+#content {
+    max-width: 100%;
+    /*margin: 60px 60px 60px 460px;*/
+    background-color: var(--Sidebar-Color);
+}
+.tab {
+    padding: 1em;
+}
+
+h1
+{
+    text-align: center;
+}
+
+h2
+{
+    text-align: center;
+}
+
+/*Class for centering images*/
+.center
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px; /*If you want your images to be perfectly square, remove the border-radius bit*/
+}
+
+/*Classes for the download button*/
+.download {
+    display: inline;
+    text-align: center;
+    padding: 0.3em;
+    border-bottom: 0.2em solid var(--Sidebar-Links);
+    max-width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+.column {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+
+/*SIDEBAR MENU*/
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* to cover the whole screen */
+    height: 100vh;
+    padding: 0;  /* to override the default padding */
+    background: rgba(0,0,0, .5); /* half transparent background */
+    display: none;
+    /*z-index: 99999; /* to be on top of any other elements */
+}
+
+#menu.visible {display: block;}
+
+.blocker { 
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+}
+/*SIDEBAR*/
+#sidebar {
+    background: var(--Sidebar-Hover);
+    min-height: 100% !important;
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    left: 0px;
+    top:0px;
+    padding: 20px;
+    margin-top: var(--Sidebar-Height);
+    display: block;
+    visibility: visible;
+}
+#sidebar .icon { /*Icon*/
+    border-radius: 5%;
+    width: var(--Icon-Size);
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#sidebar .title {
+    font-size: calc(var(--Font-Size-Main) + 0.7em);
+    font-family: var(--Sidebar-Title);
+    text-align: center;
+    padding: 20px;
+}
+#sidebar .description {
+    text-align: justify;
+    padding:10px;
+    line-height:100%;
+}
+/*WEBRING*/
+#webring
+{
+    display: flex;
+    align-items:center;
+    margin: 0.2em;
+    border-bottom: 0.2em solid var(--Sidebar-Links);
+}
+#webringlinks
+{
+    margin-left: 1em;
+}
+img.webring
+{
+    margin-right: 1em;
+    margin-left: 1em;
+    border-radius: 50%;
+    width: 50%;
+    height: auto;
+}
+
+/*SIDEBAR BUTTON and stripe*/
+#header {
+    width: 100%;
+    height: 70px;
+    display: inline-block;
+}
+#toggleSidebarButton {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: var(--Background-Color);
+    border: none;
+    color: var(--Background-Color);
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    visibility: visible;
+    display: block;
+    position: fixed;
+}
+#toggleSidebarButton.hidden {
+    display: none;
+    visibility: hidden;
+}
+    
+#toggleSidebarButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+    
+#toggleSidebarButton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+    
+#toggleSidebarButton:hover span {
+    padding-right: 17px;
+}
+    
+#toggleSidebarButton:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/*Lists*/
+ul#linktabs {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    width: 260px;
+}
+ul#linktabs li {
+    background-color: transparent;
+    border: solid 0px #262626;
+    padding: 5px 20px;
+    margin-bottom: 4px;
+    color: var(--Text);
+    cursor: pointer;
+    text-align: center;
+}
+ul#linktabs li:hover, ul#linktabs li.active {
+    color: var(--Sidebar-Hover);
+    background-color: var(--Sidebar-Links);
+}
+
+ul {
+    padding-left: inherit;
+}

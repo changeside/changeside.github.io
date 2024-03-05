@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change's coding hell</title> <!--Tab title-->
-    <link rel="stylesheet" href="style.css" /> <!--Style sheet-->
+    <title>Chisaki's coding hell</title> <!--Tab title-->
+    <!--Style sheet-->
+    <link rel="stylesheet" media="screen and (min-width: 899px)" href="bigscreen.css">
+    <link rel="stylesheet" media="screen and (max-width: 900px)" href="smallscreen.css">
     <link rel="shortcut icon" type="image/x-icon" href="img/icon.png"> <!--Reuse sidebar icon as favicon-->
     
     <!--Reference info that shows up if the page is linked-->
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Change's coding hell"/> <!--Same as Tab title-->
-    <meta property="og:description" content="Page for Ukagaka/Codes."/>
+    <meta property="og:title" content="Chisaki's coding hell"/> <!--Same as Tab title-->
+    <meta property="og:description" content="Page for programming projects."/>
     <meta property="og:url" content="https://changeside.github.io/index.html"/>
 
     <!--SCRIPTS-->
@@ -43,8 +45,7 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
-        function getQueryVariable(variable)
-        {
+        function getQueryVariable(variable) {
             var query = window.location.search.substring(1);
             var vars = query.split("&");
             for (var i=0;i<vars.length;i++) {
@@ -56,158 +57,299 @@
     </script>
 </head>
 
-<body>
-    <!-- SIDEBAR -->
-    <div id="sidebar">
-        <!--Icon/Title/Description-->
-        <img class="icon" src="img/icon.png">
-        <div class="title"><a href="/">Change's coding hell</a></div>
-        <div class="description">
-            
-        </div>
-        <!--Page tabs-->
-        <ul id="linktabs">
-            <li class="tablinks" onclick="tabSwitch(event, 'Home')" id="default">Home</li>
-            <li class="tablinks" onclick="tabSwitch(event, 'Sans')" id="sans">UF!Sans Ukagaka</li>
-            <li class="tablinks" onclick="tabSwitch(event, 'Snail')" id="snail">Snail Ukagaka</li>
-            <li class="tablinks" onclick="tabSwitch(event, 'Squid')" id="squid">Squid Ukagaka</li>
-        </ul>
-        <!--Webring-->
-        <div style="border: 0.2em solid var(--Sidebar-Links);">
-        <div id="webring" >
-                <img class="webring" src="https://ukagakawebring.netlify.app//assets/images/ukagaka%20icon.jpg">
-                <p>This site is part of <a href="https://ukagakawebring.netlify.com/" target="_new">Ukagaka/Ghost Development and Download</a></p>
-        </div>
-        <div>
-                <p><a href="https://ukagakawebring.netlify.com//prev">Previous</a> |
-                <a href="https://ukagakawebring.netlify.com//random">Random</a> |
-                <a href="https://ukagakawebring.netlify.com//next">Next</a></p>
-                <script async src="https://ukagakawebring.netlify.com//embed.js" charset="utf-8"></script>
-        </div>
-        </div>
-    </div>
-    <!-- CONTENTS -->
-    <div id="content">
-        <div id="Home" class="tab">
-            <!--SSP explanation-->
-            <h2>What even is this website/SSP</h2>
-            <p>This page is for Ghosts/Ukagaka. They are basically the japanese <strike>(better)</strike> version of the Windows Clippy or BonziBuddy.
-                If you don't know either of them- let me explain. Ukagaka are desktop buddies. They are displayed on your screen and can do various things.
-                For example, emptying your recycle bin, spewing nonsense, tracking time or even serving as tasklists or alarms. Or something simple as dress up game.
-                <br>If you're intrigued, be sure to check out the webring on the left and test out some Ukagaka!
-            </p>
-            <!--SSP install section-->
-            <h2>How to install SSP (On Windows)</h2>
-            <p> 1. Install from the <a href="http://ssp.shillest.net/">official website</a><br>
-                2. Open SSP.exe<br>
-                3. Right click and click "English" under "Language". Restart.<br>
-                4. Now you can drag any ghost onto the start up one and they'll auto install.
-            </p>
-            <h2>How to install SSP (On Mac?)</h2>
-            <p>I have no idea of other OS so please drop into the <a href="http://discord.gg/uBPq8XF">Ukagaka Server</a> and look for resources. 
-                Thanks for your understanding.</p>
-        </div>
-        <div id="Sans" class="tab">
-            <h1>UF!Sans Ukagaka</h1>
-            <p><img src="img/sans_0.jpg"><img src="img/sans_1.jpg"></p>
-            <p><div class="download"><a href="https://github.com/changeside/UFellSans_cs/raw/main/UFellSans_cs.nar">Download UF!Sans</a></div></p>
-            <h2>Description</h2>
-            <p><i>Ever wanted to be foulmouthed by your favorite edgy skeleton?</i></p>
-            <p>
-                Well, now your time has come! He can lounge around your desktop, blast your favorite music in a handy included music player, 
-                empty your recycle bin, tell you a bunch of terrible jokes, the current time or little alarms you can set for yourself, 
-                speak to you, learn about as well as react to your actions and much much more.<br>
-                He is of course, based on my own headcanons (but watered down to appeal to more people), instead of official designs etc.
-                Sans also features animations, that can however be turned off after the first boot!<br>
+<!--MAIN WEBPAGE CONTENT-->
 
-                HERE IS YOUR WARNING! Underfell Sans swears, curses you out at first AND FEATURES EXTREMELY DARK JOKES:<br>
-                sex, pedophile, children, baby, racism, cannibal, macabre<br>
-                They are off by default but can individually by topic be turned on in the settings menu.
-            </p>
-            <h2>Functions</h2>
-            <p><ul>
-                <li>User defined pronouns and name</li>
-                <li>Animations (toggleable)</li>
-                <li>An own feelings and mood system</li>
-                <li>Jokes (dark humor can be toggled off & filtered)</li>
-                <li>Head and face pat interaction</li>
-                <li>Ask sans menu</li>
-                <li>Random dialogue (frequency changeable) and KoFi supporter thanking dialogue</li>
-                <li>Interaction with other UF characters (Grillby, Papyrus, Alphys)</li>
-                <li>Games (Coin throw, Rock paper scissors, Tic tac toe, Gold digger)</li>
-                <li>Shop and inventory system</li>
-                <li>Variable backup</li>
-                <li>Hidden events?</li>
-                <li>Utility functions: Alarms, Empty recycle bin, Fix PC clock, Calendar, 
-                Change desktop image, Battery notify, Email check, RSS feeds, 
-                hourly reminders (toggleable)</li>
-                <li>Currently inaccessible: Music player, Program shortcuts, AI Chat, Desktop stars(?)</li>
-            </ul></p>
+<body>
+    <div id="webpage">
+        <button id="toggleSidebarButton" class="button" style="vertical-align:middle"><span style="color: antiquewhite;">Home </span></button> <!-- Button to toggle sidebar -->
+        <div id="header"></div>
+        <div id="menu">
+            <div class="blocker"></div> <!-- Detects clicks outside of sidebar-->
+            <div id="sidebar"> <!--THIS IS THE SIDEBAR WOOP-->
+                <!--Icon/Title/Description-->
+                <img class="icon" src="img/icon.png">
+                <div class="title"><a href="/">Chisaki's coding hell</a></div>
+                <div class="description">
+                    <p>Studying game development, mainly Unity Engine & C#.<br>Formerly focused on Ukagaka.</p>
+                </div>
+                <!--Page tabs-->
+                <ul id="linktabs">
+                    <li class="tablinks" onclick="tabSwitch(event, 'Home')" id="default">Home</li>
+                    <li class="tablinks" onclick="tabSwitch(event, 'Anjellyca')" id="anjellyca">Anjellyca</li>
+                    <li class="tablinks" onclick="tabSwitch(event, 'MonsterPrincess')" id="monsterprincess">Monster Princess</li>
+                    <li class="tablinks" onclick="tabSwitch(event, 'Sans')" id="sans">UF!Sans Ukagaka</li>
+                    <li class="tablinks" onclick="tabSwitch(event, 'Snail')" id="snail">Snail Ukagaka</li>
+                    <li class="tablinks" onclick="tabSwitch(event, 'Squid')" id="squid">Squid Ukagaka</li>
+                </ul>
+                <!--Webring-->
+                <div style="border: 0.2em solid var(--Sidebar-Links);">
+                    <div id="webring" >
+                        <img class="webring" src="https://ukagakawebring.netlify.app//assets/images/ukagaka%20icon.jpg">
+                        <p>This site is part of <a href="https://ukagakawebring.netlify.com/" target="_new">Ukagaka/Ghost Development and Download</a></p>
+                    </div>
+                    <div id="webringlinks">
+                        <p><a href="https://ukagakawebring.netlify.com//prev">Previous</a> |
+                        <a href="https://ukagakawebring.netlify.com//random">Random</a> |
+                        <a href="https://ukagakawebring.netlify.com//next">Next</a></p>
+                        <script async src="https://ukagakawebring.netlify.com//embed.js" charset="utf-8"></script>
+                    </div>
+                </div>
             </div>
-        <div id="Snail" class="tab">
-            <h1>Snail Collab Ukagaka</h1>
-            <p><img src="img/snail_0.png"></p>
-            <p><div class="download"><a href="https://github.com/changeside/gcm_snail/raw/main/gcm_snail.nar">Download Snail</a></div></p>
-            <h2>Description</h2>
-            <p><i>Want a little comfort buddy?</i></p>
-            <p>
-                Snail is just a little bean that can hang around your desktop and try on many different clothing combinations! 
-                You may even get her to ramble about her interests, spout a couple curious rock facts? 
-                Perhaps watch her sing to herself? We (Galla, Misu, me) made her over the course of a week for an event, 
-                but now decided to brush up her errors and add more clothing items.
-            </p>
-            <h2>Functions</h2>
-            <p><ul>
-                <li>Fully customizable look through dress up options</li>
-                <li>Self care tips</li>
-                <li>Facts</li>
-                <li>Random dialogue (frequency changeable)</li>
-                <li>Currently inaccessible: Various unlockable dialogue</li>
-            </ul></p>
-            <h2>Credits</h2>
-            <p><ul>
-                <li>Galla (Warning explicit/NSFW): <a href="https://www.pillowfort.social/Galla">Pillowfort</a> | <a href="https://twitter.com/gallathegalla">Twitter</a></li>
-                <li>Misu: <a href="https://misubito.tumblr.com/">Tumblr</a></li>
-                <li>Change: <a href="https://changeside.tumblr.com/">Tumblr</a></li>
-            </ul></p>
         </div>
-        <div id="Squid" class="tab">
-            <h1>Squid Collab Ukagaka</h1>
-            <p><img src="img/squid_0.jpg"></p>
-            <p><div class="download"><a href="https://github.com/changeside/gc_squid/raw/main/gc_squid.nar">Download Squid</a></div></p>
-            <h2>Description</h2>
-            <p><i>Low-key adorable low-key threatening</i></p>
-            <p>
-                Squid offers it's vast knowledge of the multiverse, the incredible ability to morph its colors and can  
-                even keep track of the fickle human creation that is time.
-            </p>
-            <h2>Functions</h2>
-            <p><ul>
-                <li>Customizable look of speech bubble and squid colors</li>
-                <li>Cares about your species, home planet. Oh. And about your name or birthday I guess.</li>
-                <li>Squid sounds.</li>
-                <li>Random dialogue (frequency changeable)</li>
-                <li>Countdown as well as count up. How neat.</li>
-            </ul></p>
-            <h2>Credits</h2>
-            <p><ul>
-                <li>Galla (Warning explicit/NSFW): <a href="https://www.pillowfort.social/Galla">Pillowfort</a> | <a href="https://twitter.com/gallathegalla">Twitter</a></li>
-                <li>Change: <a href="https://changeside.tumblr.com/">Tumblr</a></li>
-            </ul></p>
+        <script> //script to toggle sidebar (thanks allenhwkim.medium)
+            const sidebar = document.querySelector('#menu');
+            const menubutton = document.querySelector('#toggleSidebarButton');
+            sidebar.querySelector('.blocker').onclick = hide;
+            function show() { // swipe right
+                sidebar.classList.add('visible');
+                menubutton.classList.add('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+    
+            function hide() { // by blocker click, swipe left, or url change
+                sidebar.classList.remove('visible');
+                menubutton.classList.remove('hidden');
+                document.body.style.overflow = '';
+            }
+    
+            function toggle() {
+                sidebar.classList.contains('visible') ? hide() : show(); // Toggle sidebar on mobile devices
+            }
+    
+            // Toggle sidebar when button is clicked
+            document.getElementById('toggleSidebarButton').addEventListener('click', toggle);
+        </script>
+        <!--HERE COMES THE ACTUAL INFO PAGES-->
+        <div id="content">
+            <div id="Home" class="tab">
+                <!-- Introduction to Unity projects-->
+                <h2>Video Game Projects</h2>
+                <p>"Anjellyca" as well as "Monster Princess" are student projects created in the effort to learn game development.
+                    These games were created with 4 person teams in the span of one Semester.
+                    In both these titles I served as the main programmer of the team, and all the assets created by me are respectively listed on
+                    their dedicated pages.<br>
+                    If you are feeling a bit adventurous why not give them a try?
+                </p><br><h1>SSP</h1>
+                <!--SSP explanation-->
+                <h2>What are Ukagaka even?</h2>
+                <p>This page lists Ghosts/Ukagaka I have made or participated in over the years. They run on the baseware <i>SakuraScriptPlayer</i> and utilize <i>Yaya</i> as language.<br>
+                    Ukagaka are in their essence japanese Desktop Buddies.
+                    If you don't know what that means- let me explain. They are little characters displayed on your screen that can do various things.
+                    For example, emptying your recycle bin, tracking time, setting alarms or even serving as tasklists. Or something as simple as being a dress up game. 
+                    Most however are supposed to entertain by providing company to the user and having lots of dialogue as well as interactions.
+                    <br>If you're intrigued, be sure to check out the webring on the left and test out some Ukagaka!
+                </p>
+                <!--SSP install section-->
+                <h2>How to install SSP (On Windows)</h2>
+                <p> 1. Install from the <a href="http://ssp.shillest.net/">official website</a><br>
+                    2. Open SSP.exe<br>
+                    3. Right click and click "English" under "Language". Restart.<br>
+                    4. Now you can drag any ghost onto the start up one and they'll automatically install.
+                </p>
+                <h2>How to install SSP (On Mac/Other OS)</h2>
+                <p>As SSP is intended to be run on Windows and I only own devices with Windows,
+                    I cannot detail the workarounds used properly to run it on different OS, so please drop into the 
+                    <a href="http://discord.gg/uBPq8XF">Ukagaka Server</a> and look for resources. 
+                    Thanks for your understanding.</p>
+            </div>
+            <div id="Anjellyca" class="tab">
+                <h1>Anjellyca - get ready for a jiggly jello world</h1>
+                <div class="singleimage">
+                    <img src="img/anjellyca_spin.gif">
+                </div>
+                <p><div class="download"><a href="https://sh4d0w-19.itch.io/anjellyca">Download Anjellyca on Itch.io</a></div></p>
+                <h2>Description</h2>
+                <p><i>Ever wanted a physics based wacky jump and run platformer puzzle game without jumping?</i></p>
+                <p>
+                    Anjellyca is exactly that, a mix of heavily movement oriented gameplay and interesting puzzles sprinkled in-between. 
+                    Can't jump? No problem, you can make do by dashing, becoming one with objects and moving as them as well as 
+                    making the world of physics work for you. <br> Wait. 
+                    You didn't want a physics based wacky jump and run platformer puzzle game without jumping? 
+                    But c'mone aren't you at least a bit intrigued?
+                </p>
+                <h2>Specifications</h2>
+                <p><ul>
+                    <li>Platform: Windows</li>
+                    <li>Controls: Xbox/Playstation/Switch Pro controller or Keyboard and Mouse</li>
+                    <li>Developed with Unity engine</li>
+                </ul></p>
+                <h2>Credits</h2>
+                <p><ul>
+                    <li>Marlene Jüngling: <a href="https://www.linkedin.com/in/marlene-j%C3%BCngling-a8a6322a3/">Linkedin</a><br>
+                    Roles - Vision Keeper, Sound Manager, Assistant-Programmer, Tech Artist, Game Designer</li>
+                    <li>Liam Hermann: <a href="https://www.linkedin.com/in/liam-hermann-050008288/">Linkedin</a><br>
+                    Roles - Production Manager, Game Designer, VFX, SFX</li>
+                    <li>Sophie Leikina: <a href="https://www.linkedin.com/in/sophie-leikina-b7ba5b2ab/">Linkedin</a><br>
+                    Roles - 2D Artist, Concept Artist, 3D & Tech Artist</li>
+                    <li>Josia Meyer <br>
+                    Roles - Sound Designer, Sound Creator</li>
+                    <li>Chisaki: <a href="https://www.linkedin.com/in/chisaki-broschinski-83a520298/">Linkedin</a> | <a href="https://changeside.tumblr.com/">Tumblr</a><br>
+                    Roles - Main Programmer, UI-Designer </li>
+                </ul></p>
+                <h2>Personal contributions</h2>
+                <p><ul>
+                    <li>UI images and implementation</li>
+                    <li>Character Controller</li>
+                    <li>Framework: Save system, level system, settings, input implementation (new Unity input system)</li>
+                    <li>Support and restructuring of Tolltips</li>
+                    <li>Menus for interactable objects</li>
+                    <li>Misc: Jelly wall behaviour, Marble run script, Ice shard collectible and inventory, Jelly trampoline</li>
+                    <li>Bugfixing support for everything</li>
+                </ul></p>
+            </div>
+            <div id="MonsterPrincess" class="tab">
+                <h1>Monster Princess - a somewhat different love story</h1>
+                <div class="singleimage">
+                    <img src="img/monster_princess.png">
+                </div>
+                <p><div class="download"><s><a>Download Monster Princess on Itch.io</a></s> (UNDER CONSTRUCTION)</div></p>
+                <h2>Description</h2>
+                <p><i>Get ready to revive your lost love.</i></p>
+                <p>
+                    In this Tower Defense game you're a monster, madly in love with a deceased human princess. By defending your tower from those who want to slay you, 
+                    you gather their souls to finally reunite with her. Build your own dungeon layouts, utilize skills and traps while being enraptured by amazing 
+                    sprite based fully animated artwork. Experience 3 different endings related to your highscore, and watch the story play out.
+                </p>
+                <h2>Specifications</h2>
+                <p><ul>
+                    <li>Platform: Windows</li>
+                    <li>Controls: Keyboard and Mouse</li>
+                    <li>Developed with Unity engine</li>
+                </ul></p>
+                <h2>Credits</h2>
+                <p><ul>
+                    <li>Jenny: <a href="https://www.instagram.com/fa11ne/">Instagram</a><br>
+                    Roles - Vision Keeper</li>
+                    <li>Aaliyah: <a href="https://miomiomii1.carrd.co/">Caard</a><br>
+                    Roles - Production Manager, 2D Artist</li>
+                    <li>Melissa: <a href="https://www.instagram.com/kiwibnui/">Instagram</a><br>
+                    Roles - 2D Artist, Rigger</li>
+                    <li>Aron Frankenberger: <a href="https://aron-frankenberger.jimdosite.com/">Website</a><br>
+                    Roles - Sound Designer, Sound Creator</li>
+                    <li>Alexander Primus: <a href="https://alexanderprimus.com/">Website</a><br>
+                    Roles - Sound Designer, Sound Creator</li>
+                    <li>Chisaki: <a href="https://www.linkedin.com/in/chisaki-broschinski-83a520298/">Linkedin</a> | <a href="https://changeside.tumblr.com/">Tumblr</a><br>
+                    Roles - Programmer</li>
+                </ul></p>
+                <h2>Personal contributions</h2>
+                <p><ul>
+                    <li>UI implementation</li>
+                    <li>Summary: All the code</li>
+                    <li>Long version: Integration of the 2D navmesh package, Character controls, Enemy behaviour, Traps and upgrade system, Health/Fight system, Dungeon Build mechanic, 
+                        Unity implementation of sprites/animations (with the help of Aaliyah)/levels, Framework of levels/scenes/save states
+                    </li>
+                </ul></p>
+            </div>
+            <div id="Sans" class="tab">
+                <h1>UF!Sans Ukagaka</h1>
+                <div class="row">
+                    <div class="column">
+                        <img src="img/sans_0.jpg" alt="Sans Ukagaka Phonecall">
+                    </div>
+                    <div class="column">
+                        <img src="img/sans_1.jpg" alt="Sans Ukagaka Menu">
+                    </div>
+                </div>
+                <p><div class="download"><a href="https://github.com/changeside/UFellSans_cs/raw/main/UFellSans_cs.nar">Download UF!Sans</a></div></p>
+                <h2>Description</h2>
+                <p><i>Ever wanted to be foulmouthed by your favorite edgy skeleton?</i></p>
+                <p>
+                    Well, now your time has come! He can lounge around your desktop, <s>blast your favorite music in a handy included music player</s> (due to sudden changes in behavior of the code this became unavailable), 
+                    empty your recycle bin, tell you a bunch of terrible jokes, the current time or little alarms you can set for yourself, 
+                    speak to you, learn about as well as react to your actions and much much more.<br>
+                    He is of course, based on my own headcanons (but watered down to appeal to more people), instead of official designs.
+                    Sans also features animations, that can however be turned off after the first boot!<br>
+    
+                    <br><b>THIS IS AN HONEST WARNING!</b> Underfell Sans swears, curses you out depending on your relationship with him and features <b>extremely</b> dark and tasteless jokes.<br>
+                    They are <b>off by default</b> but can individually by topic be turned on in the settings menu.
+                    If jokes overlap multiple topics they will be disabled as soon as a single one of the related topics is disabled to avoid accidentally triggering the user.
+                    <br>The setting of this Ukagaka's universe is really really dark.
+                    While the hostility towards the user goes away over time when you befriend him, most of the dark topics never fully leave.
+                    <br><b>As such if violence, swearing or cursing are upsetting to you please refrain from trying him out, he will not be enjoyable for you.</b>
+                </p>
+                <h2>Functions</h2>
+                <p><ul>
+                    <li>User defined pronouns and name.</li>
+                    <li>Animations (toggleable).</li>
+                    <li>An own feelings, mood system and relationship.</li>
+                    <li>Jokes (dark humor can be toggled off & filtered).</li>
+                    <li>Head and face pat interaction.</li>
+                    <li>Ask sans menu.</li>
+                    <li>Random dialogue (frequency changeable) and KoFi supporter thanking dialogue.</li>
+                    <li>Interaction with other UF characters (Grillby, Papyrus, Alphys) through phone calls.</li>
+                    <li>Games: Coin throw, Rock Paper Scissors, Tic Tac Toe, Gold Digger.</li>
+                    <li>Shop and inventory system.</li>
+                    <li>Safe file backup.</li>
+                    <li>Hidden events.</li>
+                    <li>Utility functions: Alarms, Hourly reminders (toggleable), Empty recycle bin, Fix PC clock, Calendar, 
+                    Change desktop image, Battery notify, Email check, RSS feeds.</li>
+                    <li>Currently inaccessible: Music player, Program shortcuts</li>
+                </ul></p>
+                <h2>Credits</h2>
+                <p><ul>
+                    <li>
+                        Change/Chisaki: <a href="https://changeside.tumblr.com/">Tumblr</a> <br>
+                        Art, animation, coding and most of the dialogue was done entirely by me. Any helpers for bugfixing and dialogue are credited in the ghost. 
+                        The following utility functions are through plugins that were provided by really amazing coders from the Ukagaka community: Empty recycle bin.
+                    </li>
+                </ul></p>
+                </div>
+            <div id="Snail" class="tab">
+                <h1>Snail Collab Ukagaka</h1>
+                <div class="singleimage">
+                    <img src="img/snail_0.png" alt="Snail Ukagaka">
+                </div>
+                <p><div class="download"><a href="https://github.com/changeside/gcm_snail/raw/main/gcm_snail.nar">Download Snail</a></div></p>
+                <h2>Description</h2>
+                <p><i>Want a little comfort buddy?</i></p>
+                <p>
+                    Snail is just a little bean that can hang around your desktop and try on many different clothing combinations! 
+                    You may even get her to ramble about her interests like a couple curious rock facts perhaps? 
+                    Maybe watch her sing to herself? Galla, Misu and me made her over the course of a week for an event, 
+                    but afterwards decided to smooth out her errors and add more clothing items.
+                </p>
+                <h2>Functions</h2>
+                <p><ul>
+                    <li>Fully customizable look through dress up options.</li>
+                    <li>Self care tips.</li>
+                    <li>Facts.</li>
+                    <li>Random dialogue (frequency changeable).</li>
+                    <li>Currently inaccessible: Various unlockable dialogue.</li>
+                </ul></p>
+                <h2>Credits</h2>
+                <p><ul>
+                    <li>Galla (Warning explicit/NSFW): <a href="https://www.pillowfort.social/Galla">Pillowfort</a> | <a href="https://twitter.com/gallathegalla">Twitter</a></li>
+                    <li>Misu: <a href="https://misubito.tumblr.com/">Tumblr</a></li>
+                    <li>Change/Chisaki: <a href="https://changeside.tumblr.com/">Tumblr</a></li>
+                </ul></p>
+            </div>
+            <div id="Squid" class="tab">
+                <h1>Squid Collab Ukagaka</h1>
+                <div class="singleimage">
+                    <img src="img/squid_0.jpg" alt="Squid Ukagaka">
+                </div>
+                <p><div class="download"><a href="https://github.com/changeside/gc_squid/raw/main/gc_squid.nar">Download Squid</a></div></p>
+                <h2>Description</h2>
+                <p><i>Low-key adorable low-key threatening</i></p>
+                <p>
+                    Squid offers it's vast knowledge of the multiverse, the incredible ability to morph its colors and can  
+                    even keep track of the fickle human creation that is time.
+                </p>
+                <h2>Functions</h2>
+                <p><ul>
+                    <li>Customizable look of both speech bubble and squid colors.</li>
+                    <li>Cares about your species and your home planet of course. Oh. And about your name as well as birthday I guess.</li>
+                    <li>Squid sounds.</li>
+                    <li>Random dialogue (frequency changeable).</li>
+                    <li>Count-down as well as Count-up. How neat.</li>
+                </ul></p>
+                <h2>Credits</h2>
+                <p><ul>
+                    <li>Galla (Warning explicit/NSFW): <a href="https://www.pillowfort.social/Galla">Pillowfort</a> | <a href="https://twitter.com/gallathegalla">Twitter</a></li>
+                    <li>Change/Chisaki: <a href="https://changeside.tumblr.com/">Tumblr</a></li>
+                </ul></p>
+            </div>
         </div>
     </div>
 </body>
 </html>
-
-<!-- Ghost site template
-    <p><img src="img/sans_0.jpg"> <img src="img/sans_1.jpg"></p>
-    <p><div class="download"><a href="">Download UF!Sans</a></div></p>
-    <h2>Description</h2>
-    <p>
-
-    </p>
-    <h2>Functions</h2>
-    <p>
-        
-    </p>
--->
