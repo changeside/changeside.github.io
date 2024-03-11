@@ -5,10 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chisaki's coding hell</title> <!--Tab title-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Style sheet-->
     <link rel="stylesheet" media="screen and (min-width: 899px)" href="bigscreen.css">
     <link rel="stylesheet" media="screen and (max-width: 900px)" href="smallscreen.css">
-    <link rel="shortcut icon" type="image/x-icon" href="img/icon.png"> <!--Reuse sidebar icon as favicon-->
+    <link rel="shortcut icon" type="image/x-icon" href="img/icon.png"> <!--Use drawn icon as favicon-->
     
     <!--Reference info that shows up if the page is linked-->
     <meta property="og:type" content="website"/>
@@ -16,8 +17,8 @@
     <meta property="og:description" content="Page for programming projects."/>
     <meta property="og:url" content="https://changeside.github.io/index.html"/>
 
-    <!--SCRIPTS-->
-    <script> //Tab function. Thanks w3schools.com
+       <!--SCRIPTS-->
+       <script> //Tab function. Thanks w3schools.com
         document.addEventListener("DOMContentLoaded", function(event) { 
             var tab = getQueryVariable("tab");
             if (!tab) {
@@ -44,6 +45,11 @@
             // Show the current tab, and add an "active" class to the button that opened the tab
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
+            
+            $('.Video').each(function() {
+                var el_src = $(this).attr("src");
+                $(this).attr("src",el_src);
+            });
         }
         function getQueryVariable(variable) {
             var query = window.location.search.substring(1);
@@ -61,7 +67,7 @@
 
 <body>
     <div id="webpage">
-        <button id="toggleSidebarButton" class="button" style="vertical-align:middle"><span style="color: antiquewhite;">Home </span></button> <!-- Button to toggle sidebar -->
+        <button id="toggleSidebarButton" class="button" style="vertical-align:middle"><span style="color: antiquewhite;">Menu </span></button> <!-- Button to toggle sidebar -->
         <div id="header"></div>
         <div id="menu">
             <div class="blocker"></div> <!-- Detects clicks outside of sidebar-->
@@ -151,11 +157,65 @@
                     I cannot detail the workarounds used properly to run it on different OS, so please drop into the 
                     <a href="http://discord.gg/uBPq8XF">Ukagaka Server</a> and look for resources. 
                     Thanks for your understanding.</p>
+                <!--About me section-->
+                <h2>About me</h2>
+                <div class="row">
+                    <div class="column">
+                        <div class="container">
+                        <img class="paragraphimage" src="img/profile_icon.jpg"> 
+                        <p>I'm Chisaki Broschinski, currently studying Animation and Game at the H-Da. While I do have skills in animation and illustration, I focus mainly on game programming.
+                            <br>I want to reach an era of properly debugged video games where we don't need to see frames drop just because we went a bit too close to the water and some developer thought it was a great 
+                            idea to render dozen entities with all their code and hitboxes that can't even be encountered.
+                        </p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <p><ul>
+                            <li>Unity C# - Visual Studio/Visual Studio Code</li>
+                            <li>Base experience in C++/Java/Html/CSS</li>
+                            <li>Experience in 2D/3D animation - Blender/Maya</li>
+                            <li>Stylized Illustration - Clip Studio Paint/Basic Photoshop</li>
+                            <li>Fluent in English and German</li>
+                            <li>Personal weakness: Design</li>
+                        </ul></p>
+                    </div>
+                </div>
+                <h2>Contact</h2>
+                <div class="row">
+                    <div class="threecolumn">
+                        <p>E-MAIL: <a href="mailto:chi.broschinski@gmail.com">chi.broschinski@gmail.com</a></p>
+                    </div>
+                    <div class="threecolumn">
+                        <p>LINKEDIN: <a href="https://www.linkedin.com/in/chisaki-broschinski-83a520298/">chisaki-broschinski-83a520298</a></p>
+                    </div>
+                    <div class="threecolumn">
+                        <p>TUMBLR: <a href="https://changeside.tumblr.com/">changeside.tumblr.com</a></p>
+                    </div>
+                </div>
             </div>
             <div id="Anjellyca" class="tab">
                 <h1>Anjellyca - get ready for a jiggly jello world</h1>
-                <div class="singleimage">
-                    <img src="img/anjellyca_spin.gif">
+                <!--Slideshow-->
+                <div class="stretchy-wrapper">
+                    <div class="slideshow-container">
+                        <div class="mySlides1 fade">
+                            <img class="slideImage" src="img/anjellyca_spin.gif">
+                            <div class="text">Jiggly Jelly Anjellyca</div>
+                        </div>
+                        <div class="mySlides1 fade">
+                            <iframe class="slideVideo Video" src="https://player.vimeo.com/video/911609369?h=6ffea42fb5&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe><script src="https://player.vimeo.com/api/player.js"></script>
+                        </div>
+                        
+                        <!-- Next and previous buttons -->
+                        <a class="prev" onclick="plusSlides(-1,0)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,0)">&#10095;</a>
+                    </div>
+                </div>
+                <br>
+                <!-- The dots/circles -->
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1, 0)"><img src="img/anjellyca_spin_image.png"></span>
+                    <span class="dot" onclick="currentSlide(2, 0)"><img src="img/anjellyca_trailer.png"></span>
                 </div>
                 <p><div class="download"><a href="https://sh4d0w-19.itch.io/anjellyca">Download Anjellyca on Itch.io</a></div></p>
                 <h2>Description</h2>
@@ -219,7 +279,7 @@
                 <h2>Credits</h2>
                 <p><ul>
                     <li>Jenny: <a href="https://www.instagram.com/fa11ne/">Instagram</a><br>
-                    Roles - Vision Keeper</li>
+                    Roles - Vision Keeper, Illustrator (Endscreens, Title image)</li>
                     <li>Aaliyah: <a href="https://miomiomii1.carrd.co/">Caard</a><br>
                     Roles - Production Manager, 2D Artist</li>
                     <li>Melissa: <a href="https://www.instagram.com/kiwibnui/">Instagram</a><br>
@@ -351,5 +411,36 @@
             </div>
         </div>
     </div>
+
+    <script> //Slideshow script, thanks w3schools, still had to fix it somehow tho so rip
+        let slideIndex = [1,1]; //id of the images
+        /* Class the members of each slideshow group with different CSS classes */
+        let slideId = ["mySlides1"] //different slide groups, add to this array depending on number of slideshows; like ["mySlides1", "mySlides2"]
+        showSlides(1, 0);
+        showSlides(1, 1);
+
+        function plusSlides(n, no) {
+            showSlides(slideIndex[no] += n, no);
+        }
+        // Thumbnail image controls
+        function currentSlide(n, no) {
+            showSlides(slideIndex[no] = n, no);
+        }
+        function showSlides(n, no) { //n = number image; no = number of slideshow
+            let i;
+            let x = document.getElementsByClassName(slideId[no]);
+            if (n > x.length) { slideIndex[no] = 1 }
+            if (n < 1) { slideIndex[no] = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex[no]-1].style.display = "block";
+            
+            $('.Video').each(function() {
+                var el_src = $(this).attr("src");
+                $(this).attr("src",el_src);
+            });
+        } 
+    </script>
 </body>
 </html>
