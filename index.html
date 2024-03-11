@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!--?tab=TABNAME to refer to a specific tab-->
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,57 +9,13 @@
     <link rel="stylesheet" media="screen and (min-width: 899px)" href="bigscreen.css">
     <link rel="stylesheet" media="screen and (max-width: 900px)" href="smallscreen.css">
     <link rel="shortcut icon" type="image/x-icon" href="img/icon.png"> <!--Use drawn icon as favicon-->
-    
+
     <!--Reference info that shows up if the page is linked-->
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Chisaki's coding hell"/> <!--Same as Tab title-->
     <meta property="og:description" content="Page for programming projects."/>
     <meta property="og:url" content="https://changeside.github.io/index.html"/>
-
-       <!--SCRIPTS-->
-       <script> //Tab function. Thanks w3schools.com
-        document.addEventListener("DOMContentLoaded", function(event) { 
-            var tab = getQueryVariable("tab");
-            if (!tab) {
-                document.getElementById("default").click();
-            } 
-            else; document.getElementById(tab).click();
-        });
-        function tabSwitch(evt, tabName) {
-            // Declare all variables
-            var i, tabcontent, tablinks;
-
-            // Get all elements with class="tab" and hide them
-            tabcontent = document.getElementsByClassName("tab");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-
-            // Get all elements with class="tablinks" and remove the class "active"
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-
-            // Show the current tab, and add an "active" class to the button that opened the tab
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
-            
-            $('.Video').each(function() {
-                var el_src = $(this).attr("src");
-                $(this).attr("src",el_src);
-            });
-        }
-        function getQueryVariable(variable) {
-            var query = window.location.search.substring(1);
-            var vars = query.split("&");
-            for (var i=0;i<vars.length;i++) {
-                var pair = vars[i].split("=");
-                if(pair[0] == variable){return pair[1];}
-            }
-            return(false);
-        }
-    </script>
+    <script src="js/tabs.js"></script>
 </head>
 
 <!--MAIN WEBPAGE CONTENT-->
@@ -80,12 +35,12 @@
                 </div>
                 <!--Page tabs-->
                 <ul id="linktabs">
-                    <li class="tablinks" onclick="tabSwitch(event, 'Home')" id="default">Home</li>
-                    <li class="tablinks" onclick="tabSwitch(event, 'Anjellyca')" id="anjellyca">Anjellyca</li>
-                    <li class="tablinks" onclick="tabSwitch(event, 'MonsterPrincess')" id="monsterprincess">Monster Princess</li>
-                    <li class="tablinks" onclick="tabSwitch(event, 'Sans')" id="sans">UF!Sans Ukagaka</li>
-                    <li class="tablinks" onclick="tabSwitch(event, 'Snail')" id="snail">Snail Ukagaka</li>
-                    <li class="tablinks" onclick="tabSwitch(event, 'Squid')" id="squid">Squid Ukagaka</li>
+                    <li class="tablinks" id="home">Home</li>
+                    <li class="tablinks" id="anjellyca">Anjellyca</li>
+                    <li class="tablinks" id="monsterprincess">Monster Princess</li>
+                    <li class="tablinks" id="sans">UF!Sans Ukagaka</li>
+                    <li class="tablinks" id="snail">Snail Ukagaka</li>
+                    <li class="tablinks" id="squid">Squid Ukagaka</li>
                 </ul>
                 <!--Webring-->
                 <div style="border: 0.2em solid var(--Sidebar-Links);">
@@ -111,23 +66,23 @@
                 menubutton.classList.add('hidden');
                 document.body.style.overflow = 'hidden';
             }
-    
+
             function hide() { // by blocker click, swipe left, or url change
                 sidebar.classList.remove('visible');
                 menubutton.classList.remove('hidden');
                 document.body.style.overflow = '';
             }
-    
+
             function toggle() {
                 sidebar.classList.contains('visible') ? hide() : show(); // Toggle sidebar on mobile devices
             }
-    
+
             // Toggle sidebar when button is clicked
             document.getElementById('toggleSidebarButton').addEventListener('click', toggle);
         </script>
         <!--HERE COMES THE ACTUAL INFO PAGES-->
         <div id="content">
-            <div id="Home" class="tab">
+            <div project-id="home" class="tab">
                 <!-- Introduction to Unity projects-->
                 <h2>Video Game Projects</h2>
                 <p>"Anjellyca" as well as "Monster Princess" are student projects created in the effort to learn game development.
@@ -141,7 +96,7 @@
                 <p>This page lists Ghosts/Ukagaka I have made or participated in over the years. They run on the baseware <i>SakuraScriptPlayer</i> and utilize <i>Yaya</i> as language.<br>
                     Ukagaka are in their essence japanese Desktop Buddies.
                     If you don't know what that means- let me explain. They are little characters displayed on your screen that can do various things.
-                    For example, emptying your recycle bin, tracking time, setting alarms or even serving as tasklists. Or something as simple as being a dress up game. 
+                    For example, emptying your recycle bin, tracking time, setting alarms or even serving as tasklists. Or something as simple as being a dress up game.
                     Most however are supposed to entertain by providing company to the user and having lots of dialogue as well as interactions.
                     <br>If you're intrigued, be sure to check out the webring on the left and test out some Ukagaka!
                 </p>
@@ -154,17 +109,17 @@
                 </p>
                 <h2>How to install SSP (On Mac/Other OS)</h2>
                 <p>As SSP is intended to be run on Windows and I only own devices with Windows,
-                    I cannot detail the workarounds used properly to run it on different OS, so please drop into the 
-                    <a href="http://discord.gg/uBPq8XF">Ukagaka Server</a> and look for resources. 
+                    I cannot detail the workarounds used properly to run it on different OS, so please drop into the
+                    <a href="http://discord.gg/uBPq8XF">Ukagaka Server</a> and look for resources.
                     Thanks for your understanding.</p>
                 <!--About me section-->
                 <h2>About me</h2>
                 <div class="row">
                     <div class="column">
                         <div class="container">
-                        <img class="paragraphimage" src="img/profile_icon.jpg"> 
+                        <img class="paragraphimage" src="img/profile_icon.jpg">
                         <p>I'm Chisaki Broschinski, currently studying Animation and Game at the H-Da. While I do have skills in animation and illustration, I focus mainly on game programming.
-                            <br>I want to reach an era of properly debugged video games where we don't need to see frames drop just because we went a bit too close to the water and some developer thought it was a great 
+                            <br>I want to reach an era of properly debugged video games where we don't need to see frames drop just because we went a bit too close to the water and some developer thought it was a great
                             idea to render dozen entities with all their code and hitboxes that can't even be encountered.
                         </p>
                         </div>
@@ -193,7 +148,7 @@
                     </div>
                 </div>
             </div>
-            <div id="Anjellyca" class="tab">
+            <div project-id="anjellyca" class="tab">
                 <h1>Anjellyca - get ready for a jiggly jello world</h1>
                 <!--Slideshow-->
                 <div class="stretchy-wrapper">
@@ -205,7 +160,7 @@
                         <div class="mySlides1 fade">
                             <iframe class="slideVideo Video" src="https://player.vimeo.com/video/911609369?h=6ffea42fb5&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe><script src="https://player.vimeo.com/api/player.js"></script>
                         </div>
-                        
+
                         <!-- Next and previous buttons -->
                         <a class="prev" onclick="plusSlides(-1,0)">&#10094;</a>
                         <a class="next" onclick="plusSlides(1,0)">&#10095;</a>
@@ -221,10 +176,10 @@
                 <h2>Description</h2>
                 <p><i>Ever wanted a physics based wacky jump and run platformer puzzle game without jumping?</i></p>
                 <p>
-                    Anjellyca is exactly that, a mix of heavily movement oriented gameplay and interesting puzzles sprinkled in-between. 
-                    Can't jump? No problem, you can make do by dashing, becoming one with objects and moving as them as well as 
-                    making the world of physics work for you. <br> Wait. 
-                    You didn't want a physics based wacky jump and run platformer puzzle game without jumping? 
+                    Anjellyca is exactly that, a mix of heavily movement oriented gameplay and interesting puzzles sprinkled in-between.
+                    Can't jump? No problem, you can make do by dashing, becoming one with objects and moving as them as well as
+                    making the world of physics work for you. <br> Wait.
+                    You didn't want a physics based wacky jump and run platformer puzzle game without jumping?
                     But c'mone aren't you at least a bit intrigued?
                 </p>
                 <h2>Specifications</h2>
@@ -257,7 +212,7 @@
                     <li>Bugfixing support for everything</li>
                 </ul></p>
             </div>
-            <div id="MonsterPrincess" class="tab">
+            <div project-id="monsterprincess" class="tab">
                 <h1>Monster Princess - a somewhat different love story</h1>
                 <div class="singleimage">
                     <img src="img/monster_princess.png">
@@ -266,8 +221,8 @@
                 <h2>Description</h2>
                 <p><i>Get ready to revive your lost love.</i></p>
                 <p>
-                    In this Tower Defense game you're a monster, madly in love with a deceased human princess. By defending your tower from those who want to slay you, 
-                    you gather their souls to finally reunite with her. Build your own dungeon layouts, utilize skills and traps while being enraptured by amazing 
+                    In this Tower Defense game you're a monster, madly in love with a deceased human princess. By defending your tower from those who want to slay you,
+                    you gather their souls to finally reunite with her. Build your own dungeon layouts, utilize skills and traps while being enraptured by amazing
                     sprite based fully animated artwork. Experience 3 different endings related to your highscore, and watch the story play out.
                 </p>
                 <h2>Specifications</h2>
@@ -295,12 +250,12 @@
                 <p><ul>
                     <li>UI implementation</li>
                     <li>Summary: All the code</li>
-                    <li>Long version: Integration of the 2D navmesh package, Character controls, Enemy behaviour, Traps and upgrade system, Health/Fight system, Dungeon Build mechanic, 
+                    <li>Long version: Integration of the 2D navmesh package, Character controls, Enemy behaviour, Traps and upgrade system, Health/Fight system, Dungeon Build mechanic,
                         Unity implementation of sprites/animations (with the help of Aaliyah)/levels, Framework of levels/scenes/save states
                     </li>
                 </ul></p>
             </div>
-            <div id="Sans" class="tab">
+            <div project-id="sans" class="tab">
                 <h1>UF!Sans Ukagaka</h1>
                 <div class="row">
                     <div class="column">
@@ -314,12 +269,12 @@
                 <h2>Description</h2>
                 <p><i>Ever wanted to be foulmouthed by your favorite edgy skeleton?</i></p>
                 <p>
-                    Well, now your time has come! He can lounge around your desktop, <s>blast your favorite music in a handy included music player</s> (due to sudden changes in behavior of the code this became unavailable), 
-                    empty your recycle bin, tell you a bunch of terrible jokes, the current time or little alarms you can set for yourself, 
+                    Well, now your time has come! He can lounge around your desktop, <s>blast your favorite music in a handy included music player</s> (due to sudden changes in behavior of the code this became unavailable),
+                    empty your recycle bin, tell you a bunch of terrible jokes, the current time or little alarms you can set for yourself,
                     speak to you, learn about as well as react to your actions and much much more.<br>
                     He is of course, based on my own headcanons (but watered down to appeal to more people), instead of official designs.
                     Sans also features animations, that can however be turned off after the first boot!<br>
-    
+
                     <br><b>THIS IS AN HONEST WARNING!</b> Underfell Sans swears, curses you out depending on your relationship with him and features <b>extremely</b> dark and tasteless jokes.<br>
                     They are <b>off by default</b> but can individually by topic be turned on in the settings menu.
                     If jokes overlap multiple topics they will be disabled as soon as a single one of the related topics is disabled to avoid accidentally triggering the user.
@@ -341,7 +296,7 @@
                     <li>Shop and inventory system.</li>
                     <li>Safe file backup.</li>
                     <li>Hidden events.</li>
-                    <li>Utility functions: Alarms, Hourly reminders (toggleable), Empty recycle bin, Fix PC clock, Calendar, 
+                    <li>Utility functions: Alarms, Hourly reminders (toggleable), Empty recycle bin, Fix PC clock, Calendar,
                     Change desktop image, Battery notify, Email check, RSS feeds.</li>
                     <li>Currently inaccessible: Music player, Program shortcuts</li>
                 </ul></p>
@@ -349,12 +304,12 @@
                 <p><ul>
                     <li>
                         Change/Chisaki: <a href="https://changeside.tumblr.com/">Tumblr</a> <br>
-                        Art, animation, coding and most of the dialogue was done entirely by me. Any helpers for bugfixing and dialogue are credited in the ghost. 
+                        Art, animation, coding and most of the dialogue was done entirely by me. Any helpers for bugfixing and dialogue are credited in the ghost.
                         The following utility functions are through plugins that were provided by really amazing coders from the Ukagaka community: Empty recycle bin.
                     </li>
                 </ul></p>
                 </div>
-            <div id="Snail" class="tab">
+            <div project-id="snail" class="tab">
                 <h1>Snail Collab Ukagaka</h1>
                 <div class="singleimage">
                     <img src="img/snail_0.png" alt="Snail Ukagaka">
@@ -363,9 +318,9 @@
                 <h2>Description</h2>
                 <p><i>Want a little comfort buddy?</i></p>
                 <p>
-                    Snail is just a little bean that can hang around your desktop and try on many different clothing combinations! 
-                    You may even get her to ramble about her interests like a couple curious rock facts perhaps? 
-                    Maybe watch her sing to herself? Galla, Misu and me made her over the course of a week for an event, 
+                    Snail is just a little bean that can hang around your desktop and try on many different clothing combinations!
+                    You may even get her to ramble about her interests like a couple curious rock facts perhaps?
+                    Maybe watch her sing to herself? Galla, Misu and me made her over the course of a week for an event,
                     but afterwards decided to smooth out her errors and add more clothing items.
                 </p>
                 <h2>Functions</h2>
@@ -383,7 +338,7 @@
                     <li>Change/Chisaki: <a href="https://changeside.tumblr.com/">Tumblr</a></li>
                 </ul></p>
             </div>
-            <div id="Squid" class="tab">
+            <div project-id="squid" class="tab">
                 <h1>Squid Collab Ukagaka</h1>
                 <div class="singleimage">
                     <img src="img/squid_0.jpg" alt="Squid Ukagaka">
@@ -392,7 +347,7 @@
                 <h2>Description</h2>
                 <p><i>Low-key adorable low-key threatening</i></p>
                 <p>
-                    Squid offers it's vast knowledge of the multiverse, the incredible ability to morph its colors and can  
+                    Squid offers it's vast knowledge of the multiverse, the incredible ability to morph its colors and can
                     even keep track of the fickle human creation that is time.
                 </p>
                 <h2>Functions</h2>
@@ -435,12 +390,12 @@
                 x[i].style.display = "none";
             }
             x[slideIndex[no]-1].style.display = "block";
-            
+
             $('.Video').each(function() {
                 var el_src = $(this).attr("src");
                 $(this).attr("src",el_src);
             });
-        } 
+        }
     </script>
 </body>
 </html>
