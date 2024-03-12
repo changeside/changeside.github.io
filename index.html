@@ -389,7 +389,10 @@
             for (i = 0; i < x.length; i++) {
                 x[i].style.display = "none";
             }
-            x[slideIndex[no]-1].style.display = "block";
+            // Check if x[slideIndex[no]-1] is defined before setting its style
+            if (x[slideIndex[no]-1]) {
+                x[slideIndex[no]-1].style.display = "block";
+            }
 
             $('.Video').each(function() {
                 var el_src = $(this).attr("src");

@@ -44,18 +44,10 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     }
 
     document
-      .getElementById("content")
-      .querySelectorAll("video")
-      .forEach((videoElem) => {
-        try {
-          if (typeof videoElem.pause === "function") {
-            videoElem.pause();
-          }
-        } catch (error) {
-          console.warn(`Couldn't pause the following VideoElement`);
-          console.warn(videoElem);
-        }
-      });
+    $('.Video').each(function() {
+      var el_src = $(this).attr("src");
+      $(this).attr("src",el_src);
+    });
   }
 });
 
