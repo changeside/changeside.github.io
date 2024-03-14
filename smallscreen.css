@@ -303,7 +303,7 @@ ul {
 /* Slideshow container */
 .stretchy-wrapper {
     width: 100%;
-	padding-bottom: 70%;
+	padding-bottom: 56.25%;
 	position: relative;
     overflow: hidden;
 }
@@ -364,13 +364,13 @@ ul {
   /* Caption text */
   .text {
     color: #f2f2f2;
-    font-size: 15px;
+    font-size: 18px;
     padding: 8px 12px;
     position: absolute;
     bottom: 8px;
     width: 100%;
     text-align: center;
-    text-shadow: 3px 3px 10px #0f0f0f;
+    text-shadow: 3px 3px 10px #0f0f0f, 3px 3px 10px #0f0f0f, 3px 3px 10px #0f0f0f, 3px 3px 10px #0f0f0f;
   }
   
   /* The dots/bullets/indicators */

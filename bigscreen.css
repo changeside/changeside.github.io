@@ -295,10 +295,11 @@ img.webring
 
 /* Slideshow container */
 .stretchy-wrapper {
-    width: 50%;
-	padding-bottom: 35%; /* 2:1 aspect ratio*/
+    width: 80%;
+	/*padding-bottom: 35%; /* 2:1 aspect ratio*/
+    padding-bottom: 45%;
 	position: relative;
-    margin-left: 25%;
+    margin-left: 10%;
     overflow: hidden;
 }
 .slideshow-container {
@@ -312,7 +313,7 @@ img.webring
     height: 100%;
     width: 100%;
     object-fit: cover;
-    object-position: center center;
+    object-position: center;
 }
 .slideVideo {
     position: absolute;
@@ -358,13 +359,13 @@ img.webring
 /* Caption text */
 .text {
   color: #f2f2f2;
-  font-size: 15px;
+  font-size: 20px;
   padding: 8px 12px;
   position: absolute;
   bottom: 8px;
   width: 100%;
   text-align: center;
-  text-shadow: 3px 3px 10px #0f0f0f;
+  text-shadow: 3px 3px 10px #0f0f0f, 3px 3px 10px #0f0f0f, 3px 3px 10px #0f0f0f, 3px 3px 10px #0f0f0f;
 }
 
 /* The dots/bullets/indicators */
